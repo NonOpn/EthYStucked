@@ -68,6 +68,7 @@ Monitor.prototype.waitForBlock = function() {
       this.getBlockNumber()
       .then(block_number => {
         if(block_number && block_number != last_block) {
+          console.log("new block number", block_number)
           last_block = block_number;
           last_date = moment();
           setTimeout(() => callback(), 1000);

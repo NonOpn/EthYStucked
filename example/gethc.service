@@ -1,0 +1,16 @@
+[Unit]
+Description=Geth Classic sync
+After=syslog.target network.target nss-lookup.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/geth/
+ExecStart=/usr/bin/gethc --rpc --rpcaddr 127.0.0.1 --rpcport 8545 --datadir /usr/local/geth/.gethc --cache 1024 --fast
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=geth_classic
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=EthYstucked manager
+After=syslog.target network.target nss-lookup.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/ethystucked
+ExecStart=/usr/bin/node /usr/local/ethystucked/index.js
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ethystucked
+
+[Install]
+WantedBy=default.target

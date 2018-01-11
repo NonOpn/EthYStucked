@@ -127,7 +127,7 @@ Monitor.prototype.isSyncing = function() {
     web3.eth.isSyncing()
     .then(result => {
       if(result && result.currentBlock) {
-        console.log("currently syncing ...");
+        console.log("currently syncing ...", result);
         resolve(true);
       } else {
         resolve(false);
